@@ -4,10 +4,15 @@ class Game
 
   def start
     @started = true
+	@finished = false
   end
 
   def started?
     self.started || false
+  end
+  
+  def finished?
+    self.finished || false
   end
 
   def play(left = nil, right = nil)
@@ -17,11 +22,14 @@ class Game
 	if(left == right)
 	  "Tie game. Try again!"
 	elsif ((left == :rock && right == :scissors) || (right == :rock && left == :scissors))
+	  @finished = true
       "Rock beats scissors!"
 	elsif ((left == :paper && right == :rock) || (right == :rock && left == :paper))
-      "Paper beats rock!"
+      @finished = true
+	  "Paper beats rock!"
 	elsif ((left == :scissors && right == :paper) || (right == :paper && left == :scissors))
-      "Scissors beats paper!"
+      @finished = true
+	  "Scissors beats paper!"
     else
       :UNKNOWN
     end
