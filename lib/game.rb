@@ -24,7 +24,7 @@ class Game
 	elsif ((left == :rock && right == :scissors) || (right == :rock && left == :scissors))
 	  @finished = true
       "Rock beats scissors!"
-	elsif ((left == :paper && right == :rock) || (right == :rock && left == :paper))
+	elsif ((left == :paper && right == :rock)    || (right == :rock && left == :paper))
       @finished = true
 	  "Paper beats rock!"
 	elsif ((left == :scissors && right == :paper) || (right == :paper && left == :scissors))
